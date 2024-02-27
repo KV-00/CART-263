@@ -68,17 +68,14 @@ function draw() {
         ellipse(bottomClampX, bottomClampY, 10, 10);
         ellipse(topClampX, topClampY, 10, 10);
         pop();
-
+        // Calculate clamp graphic
         let clampsDistance = dist(bottomClampX, bottomClampY, topClampX, topClampY);
-        console.log(clampsDistance);
-
         if (clampsDistance <= 45) {
             mouthType = mouthClosed;
         }
         else {
             mouthType = mouthOpen;
         }
-
         // Clamps
         push();
         imageMode(CENTER);
