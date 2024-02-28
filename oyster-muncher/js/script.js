@@ -22,6 +22,12 @@ let mouthClosed = undefined;
 let clampType = undefined;
 let clampOpen = undefined;
 let clampClosed = undefined;
+let clampHold = undefined;
+// The oyster graphics
+let oysterType = undefined;
+let oysterOpen = undefined;
+let oysterClosed = undefined;
+let oysterShell = undefined;
 // The oyster
 let oyster = undefined;
 let oysterSpawnPoints = [170, 320, 470];
@@ -33,6 +39,12 @@ function preload() {
     // Load clamp graphics
     clampOpen = loadImage('assets/images/clamp_open.png');
     clampClosed = loadImage('assets/images/clamp_closed.png');
+    clampHold = loadImage('assets/images/clamp_hold.png');
+    // Load oyster graphics
+    oysterOpen = loadImage('assets/images/oyster_open.png');
+    oysterClosed = loadImage('assets/images/oyster_closed.png');
+    oysterShell = loadImage('assets/images/oyster_shell.png');
+
 }
 
 function setup() {
@@ -59,7 +71,7 @@ function setup() {
     oyster = {
         x: random(oysterSpawnPoints),
         y: height - 75,
-        size: 50,
+        size: 100,
         vx: 0,
         vy: 0
     };
@@ -113,7 +125,7 @@ function draw() {
         // Clamps
         push();
         imageMode(CENTER);
-        image(clampType, ((bottomClampX + topClampX)/2), ((bottomClampY + topClampY)/2), 100, 100);
+        image(clampType, ((bottomClampX + topClampX)/2), ((bottomClampY + topClampY)/2), 200, 100);
         pop();
         // Check if touching oyster
         let d = dist(((bottomClampX + topClampX)/2), ((bottomClampY + topClampY)/2), oyster.x, oyster.y);
@@ -160,10 +172,12 @@ function draw() {
         oyster.x = random(oysterSpawnPoints);
         oyster.y = height - 75;
     }
-
+    // Draw the oyster
     push();
     fill(0, 100, 255);
     noStroke();
     ellipse(oyster.x, oyster.y, oyster.size);
+    imageMode(CENTER);
+    image(oysterClosed, oyster.x, oyster.y, oyster.size);
     pop();
 }
