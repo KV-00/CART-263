@@ -23,8 +23,8 @@ let game = new Phaser.Game(config);
 
 let cursors;
 
-let delayTime = 250;
+let delayTime = 1000;
 
-let blocks;
-let boundary;
+let gameState = 'title';
+
 let player;

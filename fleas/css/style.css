@@ -7,3 +7,9 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+@font-face {
+  font-family: 'font';
+  src: url('../assets/fonts/SingleDay-Regular.ttf');
+  font-weight: bold;
+}
