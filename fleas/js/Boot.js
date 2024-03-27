@@ -4,7 +4,7 @@ class Boot extends Phaser.Scene {
         key: `boot`
       });
     }
-
+    // preload sprites
     preload() {
       this.load.on(`complete`, () => {
         this.scene.start(`play`);
@@ -21,13 +21,4 @@ class Boot extends Phaser.Scene {
       { frameWidth: 32, frameHeight: 32 }
       );
     }
-  
-    create() {
-  
-    }
-  
-    update() {
-  
-    }
-  
   }
